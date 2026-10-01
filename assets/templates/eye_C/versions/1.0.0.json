@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "id": "eye_C",
+  "version": "1.0.0",
+  "label": "C · 横线闭眼",
+  "models": [
+    "slim",
+    "classic"
+  ],
+  "approval": {
+    "status": "approved",
+    "confirmed_by": "作者",
+    "confirmed_on": "2026-09-11",
+    "confirmation_timezone": "Asia/Shanghai",
+    "confirmation_time_precision": "date",
+    "recorded_at_utc": "2026-09-11T05:25:49+00:00",
+    "evidence": {
+      "context": "作者查看 A-B-C-v07 睫毛分层对照后确认本轮通用眼型。",
+      "review_artifact": "A-B-C-v07/睫毛分层对照.png",
+      "review_artifact_sha256": "dfb9c58a69990d2761c8d63d9df1a03818359ea391e11a1302a727cc16a096dc",
+      "scope": "冻结 v07 展示的通用眼型像素；指南发型仍为独立示例，角色发型和配色依当前参考适配。",
+      "publication_note": "历史审阅资料未随仓库公开；私人称谓、聊天原句与本机路径已从发布副本移除。"
+    }
+  },
+  "provenance": {
+    "kind": "reconstructed_from_guide",
+    "source_file": "assets/sources/guide.png",
+    "source_sha256": "0558fdaf385729beb5f3e47ddb13bc0aed276db7d20f0c8210a292805a635560",
+    "guide_label": "眼睛篇 C",
+    "detail_source": "assets/sources/guide-eyelashes-detail.png",
+    "detail_sha256": "c7bc9e79f491a8722fd7130fe5f7cf4be961faadf788d4801d4b285a17c33abc",
+    "note": "根据闭眼横线与两侧延伸重建；被外层遮住的底层与层归属为候选决定。指南内收刘海独立为示例夹具，不属于 C 眼型。"
+  },
+  "palette": {
+    "S": {
+      "rgba": [
+        255,
+        241,
+        232,
+        255
+      ],
+      "role": "skin"
+    },
+    "T": {
+      "rgba": [
+        242,
+        235,
+        233,
+        255
+      ],
+      "role": "sclera_shade"
+    },
+    "W": {
+      "rgba": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "role": "sclera_light"
+    },
+    "I": {
+      "rgba": [
+        75,
+        167,
+        92,
+        255
+      ],
+      "role": "iris_dark"
+    },
+    "J": {
+      "rgba": [
+        116,
+        205,
+        139,
+        255
+      ],
+      "role": "iris_light"
+    },
+    "L": {
+      "rgba": [
+        119,
+        83,
+        88,
+        255
+      ],
+      "role": "eyelid"
+    }
+  },
+  "surfaces": [
+    {
+      "face": "head.front",
+      "base": [
+        "........",
+        "........",
+        "........",
+        "........",
+        ".SS..SS.",
+        "SSS..SSS",
+        "LLL..LLL",
+        "........"
+      ],
+      "outer": [
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........",
+        "........"
+      ]
+    }
+  ],
+  "protected_visible": [
+    {
+      "face": "head.front",
+      "xy": [
+        1,
+        6
+      ],
+      "role": "closed_eyelid"
+    },
+    {
+      "face": "head.front",
+      "xy": [
+        2,
+        6
+      ],
+      "role": "closed_eyelid"
+    },
+    {
+      "face": "head.front",
+      "xy": [
+        5,
+        6
+      ],
+      "role": "closed_eyelid"
+    },
+    {
+      "face": "head.front",
+      "xy": [
+        6,
+        6
+      ],
+      "role": "closed_eyelid"
+    }
+  ],
+  "allowed_alpha": [],
+  "reconstruction_decisions": [
+    "闭眼线位于 y=6 的 x=0,1,2 与 x=5,6,7；各向外延伸到外眼角，共三格底层，刘海可部分遮住外端。",
+    "已识别的旧眼型区域内其余基础像素恢复肤色，不绘制眼白或虹膜；实际角色的基础层发丝冲突使用局部变体。",
+    "外层全部 KEEP；C 眼型不携带刘海轮廓、发梢或发色。",
+    "指南示例的内收刘海与发梢只在 guide-bc-hair 示例夹具中重建；当前角色仍以其自身参考图为准。",
+    "不为露出闭眼线自动删头发；参考图明确的遮眼应记录局部例外。",
+    "测试配色配置仍可包含虹膜颜色，但 C 不使用这些颜色，换瞳色不应改变 C 的像素。"
+  ],
+  "release": {
+    "frozen_from": {
+      "path": "assets/templates/eye_C/template.json",
+      "version": "0.5.0-candidate",
+      "sha256": "8c9a0e21e98b68752fd4941996757fde5974ec2e493f12a880694f9e7b8ba619"
+    },
+    "pixel_definition_sha256": "75353c03bfc1b4c159fd49a486e234ac0a684b706e8cda54ae56fd79b617d2e3",
+    "pixel_definition_fields": [
+      "surfaces",
+      "palette"
+    ],
+    "pixel_definition_canonicalization": "UTF-8 JSON; ensure_ascii=false; sort_keys=true; separators=(',', ':'); no BOM or trailing newline",
+    "protected_visible_sha256": "62dac0ec2b5f245759db25b9a16e0715e01389e0aef85114dd0751e398efe097",
+    "validation": {
+      "review": "A-B-C-v07",
+      "evidence": [
+        {
+          "path": "A-B-C-v07/pixel-validation.json",
+          "sha256": "4167557e9ec7e089d9f20cab59eaed2da5137c4495cd720b743a6981cb9b873d"
+        },
+        {
+          "path": "A-B-C-v07/preview-validation.json",
+          "sha256": "1851570d5fcef4d01f814ac7736c34d38cbd5c7aa8abcf7afcb5a10262d368bf"
+        },
+        {
+          "path": "A-B-C-v07/eyelash-validation.json",
+          "sha256": "7fd09d145055d0fa8b03c80d27c1bf89a9d31f4f0c819b678feedbd6290733e0"
+        }
+      ],
+      "model": "slim",
+      "palettes": [
+        "green",
+        "pink"
+      ],
+      "pixels_passed": true,
+      "png_readback_verified": true,
+      "eyelash_structure_passed": true,
+      "template_outer_all_keep": true,
+      "example_overlays_separate": true,
+      "browser_preview_passed": true,
+      "renderer": "skinview3d 3.4.2",
+      "browser": "152.0.4191.66",
+      "browser_checks": {
+        "explicitModel": true,
+        "outerToggleOff": true,
+        "outerToggleOn": true,
+        "paletteSwitch": true,
+        "rawColorChannels": true,
+        "noHorizontalOverflow": true,
+        "downloadsNativePng": true,
+        "noScriptErrors": true
+      },
+      "screenshots": [
+        "模型正面.png",
+        "模型斜侧.png",
+        "模型另一侧.png",
+        "模型背面.png",
+        "模型顶部.png",
+        "仅基础层.png",
+        "第二配色检查.png"
+      ],
+      "game_runtime_verified": false,
+      "scope_note": "沿用 v07 对相同像素定义的文件、双配色及浏览器检查；未新增游戏内验证，未宣称 Classic 模型已通过 v07 浏览器检查。",
+      "publication_note": "以上为冻结时的历史验证记录，非本仓库中的文件路径；本次发布未新增游戏内验证。"
+    }
+  }
+}

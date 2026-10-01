@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "guide_bc_hair_example",
+  "version": "1.0.0-reference",
+  "models": ["slim", "classic"],
+  "approval": {"status": "reference_only"},
+  "provenance": {
+    "kind": "reconstructed_from_guide",
+    "source_file": "assets/sources/guide-bc-detail.png",
+    "note": "仅为指南 B/C 示例重建内收刘海及发梢，不是通用发型模板，也不是原作者 UV。"
+  },
+  "palette": {"H": {"rgba": [207, 172, 141, 255], "role": "hair_base"}},
+  "surfaces": [{
+    "face": "head.front",
+    "base": ["........", "........", "........", "........", "........", "........", "........", "........"],
+    "outer": ["........", "........", "........", "........", ".H....H.", ".H....H.", "........", ".H....H."]
+  }],
+  "protected_visible": [],
+  "allowed_alpha": []
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>__TITLE__ · 像素母版审阅</title>
+<style>
+:root{font-family:"Microsoft YaHei",sans-serif;color:#334c66;background:#edf3f9}*{box-sizing:border-box}body{margin:0}main{max-width:1240px;margin:auto;padding:30px}h1{font-size:29px;margin:0 0 8px}h2{font-size:20px;margin:0 0 8px}p{line-height:1.7;margin:0}.muted{color:#72869b;font-size:13px}.heading{display:flex;justify-content:space-between;gap:20px;align-items:center}.tag{padding:10px 16px;background:#fff6e6;color:#9b7238;border:1px solid #eddbb7;border-radius:24px;font-size:13px;white-space:nowrap}.controls{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:23px 0 18px;padding:14px 18px;background:#ffffffad;border-radius:14px;font-size:14px}select,button{border:1px solid #cdd8e5;background:white;border-radius:8px;padding:7px 12px;color:inherit;font:inherit}label{cursor:pointer}a{color:#4177a7;text-decoration:none}a:hover{text-decoration:underline}.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.model-card{background:white;border:1px solid #dce5ef;border-radius:20px;padding:18px;overflow:hidden}.model-card canvas{display:block;width:100%;height:330px;background:#dce8f5;border-radius:12px;margin:13px 0}.model-card p{font-size:13px;color:#6a8096;min-height:43px}.links{display:flex;gap:18px;font-size:12px;margin-top:12px}.caption{font-size:12px;color:#798ca0;line-height:1.8;margin:16px 0 10px}.section{margin-top:22px;background:white;border:1px solid #dce5ef;border-radius:20px;padding:20px}.section img{width:100%;height:auto;display:block;border-radius:10px}.section details{margin-top:14px}summary{cursor:pointer;padding:9px 0;color:#466788;font-size:14px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.7 Consolas,monospace;background:#f2f6fa;padding:15px;border-radius:10px}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin:12px 0}.swatch{display:inline-flex;align-items:center;gap:5px}.swatch i{width:13px;height:13px;border:1px solid #bac7d5;display:inline-block}.status{font-size:12px;color:#7d8e9f;margin:12px 0}@media(max-width:760px){main{padding:16px}.models{grid-template-columns:1fr}.heading{align-items:flex-start}h1{font-size:23px}.tag{font-size:11px}.model-card canvas{height:340px}}
+</style>
+<main>
+<section id="hero">
+<header class="heading"><div><h1 id="title"></h1><p id="subtitle" class="muted"></p></div><span class="tag">重建候选 · 尚待确认</span></header>
+<div class="controls">
+<label>视角 <select id="view"><option value="front">正面</option><option value="angle">斜侧面</option><option value="other">另一侧</option><option value="back">背面</option><option value="top">顶部</option></select></label>
+<label><input type="checkbox" id="outer" checked> 显示外层</label>
+<label>配色 <select id="palette"></select></label>
+<a href="#layers">查看逐格分层 ↓</a>
+</div>
+<div class="models" id="models"></div>
+<p class="caption" id="caption"></p>
+</section>
+<section class="section" id="layers"><h2>基础层 / 外层 / 叠加</h2><p class="muted">每一格对应原始 PNG 的一个像素。坐标从左上角 (0,0) 开始；正面图的左右与角色自身左右相反。</p><div id="legend" class="legend"></div><img id="overview" alt="A、B、C 三套逐格分层总览"><div id="matrices"></div></section>
+<section class="section"><details><summary>查看指南中的 A/B/C 原始效果图</summary><img id="guide" alt="用户提供的指南眼型效果图"><p class="muted">指南无法唯一确定被遮住的像素和原始分层。本页矩阵为明确记录的重建候选，等待确认。</p></details><details><summary>查看小璃原图的精确分层验证</summary><img id="reference" alt="小璃原始 PNG 逐格分层"><p class="muted">小璃用于验证提取与回放过程，不直接等同于指南 A。</p></details></section>
+<p id="status" class="status">正在加载本地模型……</p>
+</main>
+<script>__VIEWER_CODE__</script>
+<script>
+const reviewData=__REVIEW_DATA__;
+window.reviewData=reviewData;
+window.viewers=[];
+const byId=id=>document.getElementById(id);
+byId('title').textContent=reviewData.title;byId('subtitle').textContent=reviewData.subtitle;
+byId('caption').textContent='模型使用相同的参考头模与镜头；上方可切换所提供的配色，下方分层图使用首个配色。立体模型用于检查外层遮挡，同坐标叠加图用于核对像素。当前页面为候选审阅。';
+byId('overview').src=reviewData.overview;byId('guide').src=reviewData.guide;byId('reference').src=reviewData.reference_chart;
+for(const p of reviewData.palettes){const o=document.createElement('option');o.value=p.id;o.textContent=p.label;byId('palette').append(o);}
+for(const [index,card] of reviewData.cards.entries()){
+ const article=document.createElement('article');article.className='model-card';
+ const title=document.createElement('h2');title.textContent=card.label;article.append(title);
+ const version=document.createElement('div');version.className='muted';version.textContent=card.version+' · 待确认';article.append(version);
+ const canvas=document.createElement('canvas');canvas.id='model-'+index;article.append(canvas);
+ const description=document.createElement('p');description.textContent=card.detail;article.append(description);
+ const links=document.createElement('div');links.className='links';
+ const download=document.createElement('a');download.textContent='下载测试 PNG';download.className='skin-download';download.dataset.index=index;links.append(download);
+ const layer=document.createElement('a');layer.href=card.layer_chart;layer.download=card.layer_chart_file;layer.textContent='下载分层图';links.append(layer);article.append(links);byId('models').append(article);
+ const detail=document.createElement('details');const summary=document.createElement('summary');summary.textContent=card.label+' · 矩阵与重建决定';detail.append(summary);
+ const note=document.createElement('p');note.className='muted';note.textContent=card.decisions.join(' ');detail.append(note);
+ const pre=document.createElement('pre');pre.textContent='坐标 x → / y ↓；. = KEEP 保留，- = CLEAR 清空外层；其他符号引用调色板。\n\n'+JSON.stringify({surfaces:card.matrices,palette:card.palette,protected_visible:card.protected_visible,example_overlays:card.example_overlays},null,2);detail.append(pre);byId('matrices').append(detail);
+}
+const paletteNames={S:'肤色',T:'眼白暗色',W:'眼白亮色',I:'虹膜深色',J:'虹膜浅色',L:'眼睑/闭眼线'};
+for(const [key,color] of Object.entries(reviewData.cards[0].palette)){
+ const label=document.createElement('span');label.className='swatch';const swatch=document.createElement('i');swatch.style.background=`rgb(${color.rgba.slice(0,3).join(',')})`;label.append(swatch);label.append(document.createTextNode(key+' '+(paletteNames[key]||color.role)));byId('legend').append(label);
+}
+function rawColorMaterials(viewer){
+ viewer.globalLight.intensity=0;viewer.cameraLight.intensity=0;
+ viewer.playerObject.skin.traverse(object=>{
+  if(!object.isMesh)return;
+  for(const material of Array.isArray(object.material)?object.material:[object.material]){
+   if(!material.map)continue;
+   // 针对随包提供的 skinview3d 3.4.2；截图测试会用固定色块验证显示颜色。
+   material.map.colorSpace='';material.map.needsUpdate=true;material.emissiveMap=material.map;
+   material.emissive.set(0xffffff);material.emissiveIntensity=1;material.color.set(0);material.needsUpdate=true;
+  }
+ });
+}
+window.applyView=function(value){
+ const angle={front:0,angle:0.62,other:-0.62,back:Math.PI,top:0}[value]||0;
+ for(const viewer of viewers){
+  const head=viewer.playerObject.skin.head.innerLayer;
+  viewer.playerObject.updateMatrixWorld(true);head.geometry.computeBoundingBox();
+  const headCenter=head.geometry.boundingBox.clone().applyMatrix4(head.matrixWorld).getCenter(viewer.camera.position.clone());
+  const center=reviewData.focus==='head'?headCenter.y:0;
+  const distance=reviewData.focus==='head'?27:68;
+  viewer.camera.position.set(Math.sin(angle)*distance,value==='top'?center+26:center,Math.cos(angle)*(value==='top'?0.1:distance));
+  viewer.camera.lookAt(0,center,0);viewer.controls.target.set(0,center,0);viewer.camera.updateProjectionMatrix();
+ }
+};
+window.applyOuter=function(visible){
+ for(const v of viewers)for(const part of ['head','body','leftArm','rightArm','leftLeg','rightLeg'])v.playerObject.skin[part].outerLayer.visible=visible;
+};
+window.applyPalette=async function(value){
+ for(const [index,viewer] of viewers.entries()){
+  await viewer.loadSkin(reviewData.cards[index].skins[value],{model:reviewData.model});rawColorMaterials(viewer);
+ }
+ for(const a of document.querySelectorAll('.skin-download')){const card=reviewData.cards[Number(a.dataset.index)];a.href=card.skins[value];a.download=card.skin_files[value];}
+ applyView(byId('view').value);applyOuter(byId('outer').checked);
+};
+window.reviewReady=(async()=>{
+ for(const [index,card] of reviewData.cards.entries()){
+  const canvas=byId('model-'+index);
+  const viewer=new skinview3d.SkinViewer({canvas,width:Math.round(canvas.clientWidth),height:330,fov:32,zoom:1,renderPaused:false});
+  viewer.controls.enabled=false;
+  await viewer.loadSkin(card.skins[reviewData.palettes[0].id],{model:reviewData.model});
+  if(reviewData.focus==='head')for(const part of ['body','leftArm','rightArm','leftLeg','rightLeg'])viewer.playerObject.skin[part].visible=false;
+  rawColorMaterials(viewer);viewers.push(viewer);
+ }
+ await applyPalette(reviewData.palettes[0].id);
+ byId('status').textContent='本地审阅 · skinview3d 3.4.2 · 静态像素候选 · 游戏内效果尚未验证';
+ return true;
+})();
+byId('view').onchange=()=>applyView(byId('view').value);
+byId('outer').onchange=()=>applyOuter(byId('outer').checked);
+byId('palette').onchange=()=>{window.lastUpdate=applyPalette(byId('palette').value);};
+</script>
+</html>

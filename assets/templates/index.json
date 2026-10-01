@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "catalog_version": "0.2.0",
+  "guide_source": "../sources/guide.png",
+  "guide_sha256": "0558fdaf385729beb5f3e47ddb13bc0aed276db7d20f0c8210a292805a635560",
+  "numbering": "原字母或数字优先；其他组按从左到右、从上到下。",
+  "production_ready_count": 3,
+  "entries": [
+    {
+      "id": "eye_A",
+      "group": "eyes",
+      "source_label": "A",
+      "state": "approved",
+      "path": "eye_A/versions/1.0.0.json",
+      "version": "1.0.0",
+      "validation": {
+        "pixels": "passed",
+        "browser_preview": "passed",
+        "user_approval": "approved",
+        "game_runtime": "not_tested"
+      }
+    },
+    {
+      "id": "eye_B",
+      "group": "eyes",
+      "source_label": "B",
+      "state": "approved",
+      "path": "eye_B/versions/1.0.0.json",
+      "version": "1.0.0",
+      "validation": {
+        "pixels": "passed",
+        "browser_preview": "passed",
+        "user_approval": "approved",
+        "game_runtime": "not_tested"
+      }
+    },
+    {
+      "id": "eye_C",
+      "group": "eyes",
+      "source_label": "C",
+      "state": "approved",
+      "path": "eye_C/versions/1.0.0.json",
+      "version": "1.0.0",
+      "validation": {
+        "pixels": "passed",
+        "browser_preview": "passed",
+        "user_approval": "approved",
+        "game_runtime": "not_tested"
+      }
+    },
+    {
+      "id": "ear_01",
+      "group": "ears",
+      "source_order": 1,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_02",
+      "group": "ears",
+      "source_order": 2,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_03",
+      "group": "ears",
+      "source_order": 3,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_04",
+      "group": "ears",
+      "source_order": 4,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_05",
+      "group": "ears",
+      "source_order": 5,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_06",
+      "group": "ears",
+      "source_order": 6,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_07",
+      "group": "ears",
+      "source_order": 7,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_08",
+      "group": "ears",
+      "source_order": 8,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "ear_09",
+      "group": "ears",
+      "source_order": 9,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_01",
+      "group": "horns_tails_wings",
+      "source_order": 1,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_02",
+      "group": "horns_tails_wings",
+      "source_order": 2,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_03",
+      "group": "horns_tails_wings",
+      "source_order": 3,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_04",
+      "group": "horns_tails_wings",
+      "source_order": 4,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_05",
+      "group": "horns_tails_wings",
+      "source_order": 5,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_06",
+      "group": "horns_tails_wings",
+      "source_order": 6,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_07",
+      "group": "horns_tails_wings",
+      "source_order": 7,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_08",
+      "group": "horns_tails_wings",
+      "source_order": 8,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "decoration_09",
+      "group": "horns_tails_wings",
+      "source_order": 9,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "eyewear_01",
+      "group": "glasses_eyepatches",
+      "source_order": 1,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "eyewear_02",
+      "group": "glasses_eyepatches",
+      "source_order": 2,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "eyewear_03",
+      "group": "glasses_eyepatches",
+      "source_order": 3,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "eyewear_04",
+      "group": "glasses_eyepatches",
+      "source_order": 4,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "eyewear_05",
+      "group": "glasses_eyepatches",
+      "source_order": 5,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "eyewear_06",
+      "group": "glasses_eyepatches",
+      "source_order": 6,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_01",
+      "group": "hats_halos",
+      "source_order": 1,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_02",
+      "group": "hats_halos",
+      "source_order": 2,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_03",
+      "group": "hats_halos",
+      "source_order": 3,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_04",
+      "group": "hats_halos",
+      "source_order": 4,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_05",
+      "group": "hats_halos",
+      "source_order": 5,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_06",
+      "group": "hats_halos",
+      "source_order": 6,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_07",
+      "group": "hats_halos",
+      "source_order": 7,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_08",
+      "group": "hats_halos",
+      "source_order": 8,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    },
+    {
+      "id": "headwear_09",
+      "group": "hats_halos",
+      "source_order": 9,
+      "state": "not_reconstructed",
+      "path": null,
+      "version": null
+    }
+  ],
+  "references": [
+    {
+      "id": "reference_xiaoli_front",
+      "state": "exact_reference",
+      "path": "reference_xiaoli_front/template.json"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minecraft 像素皮肤"
+  short_description: "按逐格母版制作与检查 MC 皮肤，明确基础层、外层和角色配色"
+  default_prompt: "使用 $minecraft-pixel-skin，按已选模板制作皮肤，并展示逐格分层与立体预览。"

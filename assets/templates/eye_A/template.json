@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "eye_A",
+  "version": "0.3.0-candidate",
+  "label": "A · 两格高虹膜",
+  "models": ["slim", "classic"],
+  "approval": {"status": "pending"},
+  "provenance": {
+    "kind": "reconstructed_from_guide",
+    "source_file": "assets/sources/guide.png",
+    "source_sha256": "0558fdaf385729beb5f3e47ddb13bc0aed276db7d20f0c8210a292805a635560",
+    "guide_label": "眼睛篇 A",
+    "detail_source": "assets/sources/guide-eyelashes-detail.png",
+    "detail_sha256": "c7bc9e79f491a8722fd7130fe5f7cf4be961faadf788d4801d4b285a17c33abc",
+    "note": "根据可见竖瞳、上眼缘和深浅外眼角重建；被刘海遮住的延伸与效果图采样配色均为候选决定，不是原作者 UV 提取。"
+  },
+  "palette": {
+    "S": {"rgba": [255, 241, 232, 255], "role": "skin"},
+    "T": {"rgba": [242, 235, 233, 255], "role": "sclera_shade"},
+    "W": {"rgba": [255, 255, 255, 255], "role": "sclera_light"},
+    "I": {"rgba": [75, 167, 92, 255], "role": "iris_dark"},
+    "J": {"rgba": [116, 205, 139, 255], "role": "iris_light"},
+    "L": {"rgba": [119, 83, 88, 255], "role": "eyelid"},
+    "U": {"rgba": [199, 120, 78, 255], "role": "lash_corner_upper"},
+    "V": {"rgba": [245, 199, 179, 255], "role": "lash_corner_lower"}
+  },
+  "surfaces": [{
+    "face": "head.front",
+    "base": ["........", "........", "........", "........", ".LL..LL.", "UTI..ITU", "VWJ..JWV", "........"],
+    "outer": ["........", "........", "........", "........", "........", "........", "........", "........"]
+  }],
+  "protected_visible": [
+    {"face": "head.front", "xy": [2, 4], "role": "eyelid"},
+    {"face": "head.front", "xy": [5, 4], "role": "eyelid"},
+    {"face": "head.front", "xy": [1, 5], "role": "sclera"},
+    {"face": "head.front", "xy": [2, 5], "role": "iris"},
+    {"face": "head.front", "xy": [5, 5], "role": "iris"},
+    {"face": "head.front", "xy": [6, 5], "role": "sclera"},
+    {"face": "head.front", "xy": [1, 6], "role": "sclera"},
+    {"face": "head.front", "xy": [2, 6], "role": "iris"},
+    {"face": "head.front", "xy": [5, 6], "role": "iris"},
+    {"face": "head.front", "xy": [6, 6], "role": "sclera"}
+  ],
+  "allowed_alpha": [],
+  "reconstruction_decisions": [
+    "上眼缘位于 y=4 的 x=1,2 与 x=5,6；深色虹膜放在 y=5，浅色虹膜放在 y=6。",
+    "左右各一列眼白；眼睛位于 x=1,2 与 x=5,6，不镜像改变角色左右。",
+    "外眼角在 x=0,7 的 y=5,6 延伸，U/V 对应参考可见的橙棕上段与浅桃下段；实际角色按自己的眼缘颜色绑定，不能全部随 L 染黑。",
+    "刘海可遮住基础层延伸轮廓的一部分，立体中只露出窄边；隐藏部分是重建候选，不是精确提取。",
+    "基础层负责眼部颜色；外层全部 KEEP，不改变已有头发或附件。上眼缘延伸与外眼角不要求对应外层完全透明。",
+    "参考未显示完整闭合的黑框；不额外给虹膜下缘或内眼缘加黑线。",
+    "发型依据当前角色参考图；可见保护只检查意外遮挡，参考图明确的遮眼须记录局部例外。"
+  ]
+}
