@@ -193,7 +193,7 @@ def make_review(project_path, output_dir):
         raise RuntimeError("小璃原始分层精确回放失败")
     reference_chart = output / "小璃_精确分层验证.png"
     draw_board([{"label": "林小璃 · 原始 PNG 精确提取", "image": reference, "model": "slim", "face": "head.front",
-                 "note": "基础层全图起点 (8,8)，外层起点 (40,8)；不是 A/B/C 的通用保护区。"}],
+                 "note": "基础层全图起点 (8,8)，外层起点 (40,8)；不是两种角色眼睛的通用保护区。"}],
                "小璃原图 · 分层验证", "原图像素 → 模板矩阵 → 分层回放：基础层与外层均逐格一致。", reference_chart)
     metadata["reference_chart"] = data_url(reference_chart)
     if source_record and file_hash(source_record["path"]) != source_record["sha256"]:
@@ -201,7 +201,7 @@ def make_review(project_path, output_dir):
     checks["reference_exact_roundtrip"] = equal
     checks["reference_sha256"] = file_hash(source)
     checks["guide_sha256"] = file_hash(ROOT / "assets/sources/guide.png")
-    # 检查换瞳色是否只改虹膜：C 应完全不变。
+    # 检查两种角色眼睛换瞳色时实际改变的像素。
     for item in metadata["cards"]:
         colors = list(item["skin_files"])
         if len(colors) >= 2:

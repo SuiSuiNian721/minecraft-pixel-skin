@@ -2,14 +2,14 @@
   "schema_version": 1,
   "id": "eye_A",
   "version": "0.3.0-candidate",
-  "label": "A · 两格高虹膜",
+  "label": "第一种角色眼睛 · 两格高虹膜",
   "models": ["slim", "classic"],
   "approval": {"status": "pending"},
   "provenance": {
     "kind": "reconstructed_from_guide",
     "source_file": "assets/sources/guide.png",
     "source_sha256": "0558fdaf385729beb5f3e47ddb13bc0aed276db7d20f0c8210a292805a635560",
-    "guide_label": "眼睛篇 A",
+    "guide_label": "第一种角色眼睛",
     "detail_source": "assets/sources/guide-eyelashes-detail.png",
     "detail_sha256": "c7bc9e79f491a8722fd7130fe5f7cf4be961faadf788d4801d4b285a17c33abc",
     "note": "根据可见竖瞳、上眼缘和深浅外眼角重建；被刘海遮住的延伸与效果图采样配色均为候选决定，不是原作者 UV 提取。"

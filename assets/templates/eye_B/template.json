@@ -2,17 +2,17 @@
   "schema_version": 1,
   "id": "eye_B",
   "version": "0.5.0-candidate",
-  "label": "B · 一格高虹膜",
+  "label": "第二种角色眼睛 · 一格高虹膜",
   "models": ["slim", "classic"],
   "approval": {"status": "pending"},
   "provenance": {
     "kind": "reconstructed_from_guide",
     "source_file": "assets/sources/guide.png",
     "source_sha256": "0558fdaf385729beb5f3e47ddb13bc0aed276db7d20f0c8210a292805a635560",
-    "guide_label": "眼睛篇 B",
+    "guide_label": "第二种角色眼睛",
     "detail_source": "assets/sources/guide-eyelashes-detail.png",
     "detail_sha256": "c7bc9e79f491a8722fd7130fe5f7cf4be961faadf788d4801d4b285a17c33abc",
-    "note": "根据较低的上眼缘、一格虹膜和两侧窄外眼角重建；隐藏延伸为候选决定。指南内收刘海独立为示例夹具，不属于 B 眼型。"
+    "note": "根据较低的上眼缘、一格虹膜和两侧窄外眼角重建；隐藏延伸为候选决定。指南内收刘海独立为示例夹具，不属于第二种角色眼睛。"
   },
   "palette": {
     "S": {"rgba": [255, 241, 232, 255], "role": "skin"},
@@ -38,11 +38,11 @@
   "allowed_alpha": [],
   "reconstruction_decisions": [
     "上眼缘在 y=5 的 x=1,2 与 x=5,6 横向延伸；外眼角在 y=6 的 x=0,7，被外层部分遮住后只露出窄边。",
-    "共享眼型区域内旧 A 上缘与外角恢复肤色；实际 source 必须先识别旧眼部，遇参考要求的基础层发丝需采用角色变体，不无条件擦除头发。",
+    "共享眼型区域内旧第一种角色眼睛上缘与外角恢复肤色；实际 source 必须先识别旧眼部，遇参考要求的基础层发丝需采用角色变体，不无条件擦除头发。",
     "虹膜仅在 y=6 保留一格；不通过全脸缩放压扁眼睛。",
-    "外层全部 KEEP；B 眼型不携带刘海轮廓、发梢或发色。上眼缘延伸与外角允许被当前参考发型部分遮住。",
+    "外层全部 KEEP；第二种角色眼睛不携带刘海轮廓、发梢或发色。上眼缘延伸与外角允许被当前参考发型部分遮住。",
     "指南示例中的两侧刘海和底部发梢内收一格，只在 guide-bc-hair 示例夹具中重建，不能推广到其他角色。",
     "发型、分缝及遮眼关系依据当前角色参考图；明确的遮眼记录局部例外。",
-    "与 A 使用相同眼距；虹膜浅色项保留以便复用配色配置，该候选不使用它。"
+    "与第一种角色眼睛使用相同眼距；虹膜浅色项保留以便复用配色配置，该候选不使用它。"
   ]
 }

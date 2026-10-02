@@ -1,0 +1,14 @@
+{
+  "title": "第一种角色眼睛 / 第二种角色眼睛",
+  "subtitle": "补全上眼缘与外眼角 · 底层轮廓可被外层部分遮住 · 发型仍以当前角色参考图为准",
+  "model": "slim",
+  "fixture": "assets/fixtures/neutral-head.json",
+  "cards": [
+    {"template": "assets/templates/eye_A/template.json", "label": "第一种角色眼睛 · 两格高虹膜", "detail": "上眼缘横向延展；外眼角分橙棕上段与浅桃下段。", "example_overlays": ["assets/fixtures/guide-a-hair.json"]},
+    {"template": "assets/templates/eye_B/template.json", "label": "第二种角色眼睛 · 一格高虹膜", "detail": "补齐上眼缘与两侧深色外眼角；部分轮廓被示例刘海遮住。", "example_overlays": ["assets/fixtures/guide-bc-hair.json"]}
+  ],
+  "palettes": [
+    {"id": "green", "label": "绿瞳", "overrides": {}},
+    {"id": "pink", "label": "粉瞳", "overrides": {"I": [218, 90, 123, 255], "J": [252, 167, 195, 255]}}
+  ]
+}

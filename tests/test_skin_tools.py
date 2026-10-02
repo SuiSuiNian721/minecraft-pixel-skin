@@ -1,4 +1,4 @@
-"""可执行的像素约束测试；不依赖角色名称或浏览器显示结果。"""
+"""可执行的模板选择与像素约束测试；不依赖浏览器显示结果。"""
 import copy
 import importlib.util
 import json
@@ -34,6 +34,19 @@ def sample_template():
 
 
 class SkinToolsTests(unittest.TestCase):
+    def test_catalog_exposes_two_character_eye_choices(self):
+        root = Path(__file__).resolve().parents[1]
+        catalog = skin.load_json(root / "assets/templates/index.json")
+        eyes = [entry for entry in catalog["entries"] if entry["group"] == "eyes"]
+        self.assertEqual([(entry["id"], entry["source_label"]) for entry in eyes],
+                         [("eye_A", "第一种角色眼睛"), ("eye_B", "第二种角色眼睛")])
+        self.assertEqual(catalog["production_ready_count"], 2)
+        self.assertTrue(skin.validate_catalog(root / "assets/templates/index.json")["passed"])
+        for entry in eyes:
+            template = skin.load_json(root / "assets/templates" / entry["path"])
+            result = skin.compose_template(skin.blank_skin("slim"), template, "slim", purpose="production")
+            self.assertEqual(result.size, (64, 64))
+
     def test_uv_has_exact_area_and_no_overlap_for_each_model(self):
         for model, expected in [("slim", 1568), ("classic", 1632)]:
             faces = skin.uv_faces(model)
@@ -159,7 +172,7 @@ class SkinToolsTests(unittest.TestCase):
                 source.putpixel((x, y), (80 + x, 100 + y, 170, 255))
         for xy in ((11, 11), (12, 11)):
             source.putpixel(xy, (70, 80, 160, 255))
-        for letter in "ABC":
+        for letter in "AB":
             template = skin.load_json(root / f"assets/templates/eye_{letter}/template.json")
             result = skin.compose_template(source, template, "slim", purpose="review")
             self.assertTrue(all(result.getpixel(xy) == source.getpixel(xy) for xy in outer_mask), letter)

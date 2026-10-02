@@ -8,7 +8,7 @@
     "kind": "reconstructed_from_guide",
     "source_file": "assets/sources/guide-eyelashes-detail.png",
     "source_sha256": "c7bc9e79f491a8722fd7130fe5f7cf4be961faadf788d4801d4b285a17c33abc",
-    "note": "仅用于指南 A 示例：上缘部分刘海与较外侧的底部发梢，不属于 A 眼型。"
+    "note": "仅用于第一种角色眼睛的指南示例：上缘部分刘海与较外侧的底部发梢，不属于通用眼睛模板。"
   },
   "palette": {"H": {"rgba": [207, 172, 141, 255], "role": "hair_base"}},
   "surfaces": [{

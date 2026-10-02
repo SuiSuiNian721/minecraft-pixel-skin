@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "catalog_version": "0.2.0",
+  "catalog_version": "0.2.1",
   "guide_source": "../sources/guide.png",
   "guide_sha256": "0558fdaf385729beb5f3e47ddb13bc0aed276db7d20f0c8210a292805a635560",
-  "numbering": "原字母或数字优先；其他组按从左到右、从上到下。",
-  "production_ready_count": 3,
+  "numbering": "眼睛显示名称为第一种角色眼睛、第二种角色眼睛；其他部件原字母或数字优先，其他组按从左到右、从上到下。",
+  "production_ready_count": 2,
   "entries": [
     {
       "id": "eye_A",
       "group": "eyes",
-      "source_label": "A",
+      "source_label": "第一种角色眼睛",
       "state": "approved",
       "path": "eye_A/versions/1.0.0.json",
       "version": "1.0.0",
@@ -23,23 +23,9 @@
     {
       "id": "eye_B",
       "group": "eyes",
-      "source_label": "B",
+      "source_label": "第二种角色眼睛",
       "state": "approved",
       "path": "eye_B/versions/1.0.0.json",
-      "version": "1.0.0",
-      "validation": {
-        "pixels": "passed",
-        "browser_preview": "passed",
-        "user_approval": "approved",
-        "game_runtime": "not_tested"
-      }
-    },
-    {
-      "id": "eye_C",
-      "group": "eyes",
-      "source_label": "C",
-      "state": "approved",
-      "path": "eye_C/versions/1.0.0.json",
       "version": "1.0.0",
       "validation": {
         "pixels": "passed",

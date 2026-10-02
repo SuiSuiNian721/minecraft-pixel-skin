@@ -50,7 +50,7 @@ git clone 'https://github.com/SuiSuiNian721/minecraft-pixel-skin.git' $skillDest
 
 ```text
 使用 $minecraft-pixel-skin，按我提供的角色参考制作 Minecraft 皮肤。
-使用 Slim 细臂模型和 A 眼型，保留参考中的发型、配色、服装与配饰。
+使用 Slim 细臂模型和第一种角色眼睛，保留参考中的发型、配色、服装与配饰。
 先读取 SKILL.md 和角色制作说明，从模板目录读取已批准的冻结版本。
 不要把高清图片直接缩小成皮肤，也不要覆盖原文件。
 请交付原生 64×64 RGBA PNG、分层图和可旋转的 3D 预览。
@@ -63,13 +63,12 @@ git clone 'https://github.com/SuiSuiNian721/minecraft-pixel-skin.git' $skillDest
 
 | 眼型 | 结构 | 正式模板 |
 | --- | --- | --- |
-| A | 两格高虹膜；外眼角上下两段可分别配色 | [A 1.0.0](assets/templates/eye_A/versions/1.0.0.json) |
-| B | 一格高虹膜，眼型更窄 | [B 1.0.0](assets/templates/eye_B/versions/1.0.0.json) |
-| C | 闭眼线，不绘制虹膜或眼白 | [C 1.0.0](assets/templates/eye_C/versions/1.0.0.json) |
+| 第一种角色眼睛 | 两格高虹膜；外眼角上下两段可分别配色 | [第一种角色眼睛 1.0.0](assets/templates/eye_A/versions/1.0.0.json) |
+| 第二种角色眼睛 | 一格高虹膜，眼型更窄 | [第二种角色眼睛 1.0.0](assets/templates/eye_B/versions/1.0.0.json) |
 
 眼型固定的是像素结构。瞳色、发型和刘海应依照当前角色参考适配，指南中的示例发型不是每个角色都要套用的发型。
 
-目录中共登记 36 个部件入口，当前正式可用的是 A/B/C 三项眼型；其余 33 项仍待重建，不能当作现成模板使用。`template.json` 保留历史候选，正式制作以 [模板目录](assets/templates/index.json) 指向的冻结版本为准。
+目录中共登记 35 个部件入口，当前正式可用的是第一种角色眼睛与第二种角色眼睛；其余 33 项仍待重建，不能当作现成模板使用。显示名称更新后，内部模板标识和前两种像素结构保持不变。`template.json` 保留历史候选，正式制作以 [模板目录](assets/templates/index.json) 指向的冻结版本为准。
 
 ## 工具与验证
 

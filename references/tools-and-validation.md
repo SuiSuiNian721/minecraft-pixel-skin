@@ -11,7 +11,7 @@ Python 3.10+ 与 Pillow；`capture_review.cjs` 另需 Node、Playwright、Sharp 
 ```powershell
 & $pythonPath (Join-Path $skillRoot 'scripts\skin_tools.py') inspect --source 'E:\当前角色\原图.png' --model slim --face head.front --id current_face --output 'E:\当前角色\审阅\原图正脸.json'
 
-& $pythonPath (Join-Path $skillRoot 'scripts\skin_tools.py') compose --source 'E:\当前角色\原图.png' --model slim --template (Join-Path $skillRoot 'assets\templates\eye_B\template.json') --palette 'E:\当前角色\B配色.json' --purpose review --output 'E:\当前角色\审阅\B候选.png'
+& $pythonPath (Join-Path $skillRoot 'scripts\skin_tools.py') compose --source 'E:\当前角色\原图.png' --model slim --template (Join-Path $skillRoot 'assets\templates\eye_B\template.json') --palette 'E:\当前角色\第二种角色眼睛配色.json' --purpose review --output 'E:\当前角色\审阅\第二种角色眼睛候选.png'
 ```
 
 配色 JSON 为颜色键到 RGBA 的映射，例如：
@@ -20,7 +20,7 @@ Python 3.10+ 与 Pillow；`capture_review.cjs` 另需 Node、Playwright、Sharp 
 {"I":[218,90,123,255],"J":[252,167,195,255],"S":[255,244,238,255]}
 ```
 
-未知颜色键、改变 Alpha 的换色、缺少模板声明的必需颜色绑定会被拒绝。A 的 `U/V` 分别为外眼角上、下两段颜色，按当前参考独立配色，不全随 `L` 染黑。A/B/C 不含发色或 `H`，外层全部 KEEP；基础层须逐格识别旧眼部与实际发丝后再组合，不能把 y=4 的 x=1、6 等固定位置一律保留或恢复肤色，冲突用角色变体。正式制作默认 `--purpose production`，未批准模板会被拒绝；不要自行改审核状态。
+未知颜色键、改变 Alpha 的换色、缺少模板声明的必需颜色绑定会被拒绝。第一种角色眼睛的 `U/V` 分别为外眼角上、下两段颜色，按当前参考独立配色，不全随 `L` 染黑。两种角色眼睛模板不含发色或 `H`，外层全部 KEEP；基础层须逐格识别旧眼部与实际发丝后再组合，不能把 y=4 的 x=1、6 等固定位置一律保留或恢复肤色，冲突用角色变体。正式制作默认 `--purpose production`，未批准模板会被拒绝；不要自行改审核状态。
 
 `compose` 输出原生 PNG 与 `.manifest.json`，包含模板哈希、版本、配色、源图哈希、变化坐标、遮挡例外、允许的 Alpha 及回读结果。已有输出路径会被拒绝，使用新版本文件名。
 
@@ -29,7 +29,7 @@ Python 3.10+ 与 Pillow；`capture_review.cjs` 另需 Node、Playwright、Sharp 
 ## 单独验证
 
 ```powershell
-& $pythonPath (Join-Path $skillRoot 'scripts\skin_tools.py') validate --source 'E:\当前角色\审阅\B候选.png' --model slim --template (Join-Path $skillRoot 'assets\templates\eye_B\template.json') --overrides 'E:\当前角色\按模板配色.json' --output 'E:\当前角色\审阅\像素检查.json'
+& $pythonPath (Join-Path $skillRoot 'scripts\skin_tools.py') validate --source 'E:\当前角色\审阅\第二种角色眼睛候选.png' --model slim --template (Join-Path $skillRoot 'assets\templates\eye_B\template.json') --overrides 'E:\当前角色\按模板配色.json' --output 'E:\当前角色\审阅\像素检查.json'
 ```
 
 `validate --overrides` 使用模板 ID 分组，格式为 `{"eye_B":{"I":[218,90,123,255]}}`，与 `compose --palette` 的单模板格式不同。应采用候选清单中实际使用的颜色、遮挡例外和允许的 Alpha；否则检查器会把合法换色或参考要求的遮挡判断为违规。
@@ -52,13 +52,13 @@ Python 3.10+ 与 Pillow；`capture_review.cjs` 另需 Node、Playwright、Sharp 
 
 ## 分层与立体审阅
 
-重新生成包内 A/B/C 比较：
+重新生成包内第一种角色眼睛与第二种角色眼睛的比较：
 
 ```powershell
-& $pythonPath (Join-Path $skillRoot 'scripts\render_review.py') --project (Join-Path $skillRoot 'assets\fixtures\abc-review-project.json') --output 'E:\当前任务\眼型审阅新版本'
+& $pythonPath (Join-Path $skillRoot 'scripts\render_review.py') --project (Join-Path $skillRoot 'assets\fixtures\character-eyes-review-project.json') --output 'E:\当前任务\眼睛审阅新版本'
 ```
 
-指南发型独立保存：A 用 `assets/fixtures/guide-a-hair.json`，B/C 用 `assets/fixtures/guide-bc-hair.json`；各示例卡显式声明自己的引用，例如 B：
+指南发型独立保存：第一种角色眼睛用 `assets/fixtures/guide-a-hair.json`，第二种角色眼睛用 `assets/fixtures/guide-bc-hair.json`；各示例卡显式声明自己的引用，例如第二种角色眼睛：
 
 ```json
 {"template":"assets/templates/eye_B/template.json","example_overlays":["assets/fixtures/guide-bc-hair.json"]}
@@ -70,22 +70,22 @@ Python 3.10+ 与 Pillow；`capture_review.cjs` 另需 Node、Playwright、Sharp 
 
 ```json
 {
-  "title":"当前角色 · B 眼型候选",
-  "subtitle":"保留当前角色发型；检查 B 眼型与参考要求的组合",
+  "title":"当前角色 · 第二种角色眼睛候选",
+  "subtitle":"保留当前角色发型；检查第二种角色眼睛与参考要求的组合",
   "source":"E:/当前角色/原图.png",
   "model":"slim",
   "focus":"head",
-  "cards":[{"template":"assets/templates/eye_B/template.json","label":"B 候选","detail":"一格高虹膜；发型形状、发长、分缝、刘海与配饰依据当前参考。"}],
+  "cards":[{"template":"assets/templates/eye_B/template.json","label":"第二种角色眼睛候选","detail":"一格高虹膜；发型形状、发长、分缝、刘海与配饰依据当前参考。"}],
   "palettes":[{"id":"pink","label":"角色粉瞳","overrides":{"I":[218,90,123,255],"J":[252,167,195,255],"S":[255,244,238,255]}}]
 }
 ```
 
-`source` 为绝对路径或相对项目 JSON 的路径；`template` 为包内相对路径或明确的绝对路径。用 `source` 时模板声明的必需颜色必须手动绑定；A/B/C 不要求发色绑定。用包内 fixture 时工具可根据对应颜色用途绑定示例颜色。`focus` 为 `head` 或 `full`。项目可声明 `allowed_alpha`、`exceptions`，格式与上文相同。
+`source` 为绝对路径或相对项目 JSON 的路径；`template` 为包内相对路径或明确的绝对路径。用 `source` 时模板声明的必需颜色必须手动绑定；两种角色眼睛模板不要求发色绑定。用包内 fixture 时工具可根据对应颜色用途绑定示例颜色。`focus` 为 `head` 或 `full`。项目可声明 `allowed_alpha`、`exceptions`，格式与上文相同。
 
 渲染命令同上，只更换 `--project`。输出目录必须不存在。生成原生 PNG、逐格图、本地 `眼型模板审阅.html` 与检查清单；审阅页自带库与图像，不依赖在线资源。
 
 ```powershell
-& $nodePath (Join-Path $skillRoot 'scripts\capture_review.cjs') 'E:\当前任务\眼型审阅新版本' 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
+& $nodePath (Join-Path $skillRoot 'scripts\capture_review.cjs') 'E:\当前任务\眼睛审阅新版本' 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 ```
 
 若 Node 包不在默认查找路径，先把 `$env:NODE_PATH` 指向已发现的包目录。浏览器路径只在本机确认存在后使用，也可以省略以使用 Playwright 配置的 Chromium。
